@@ -11,7 +11,7 @@
   <meta name="description" content="Reach out to {name}." />
 </svelte:head>
 
-<div class="w-full pt-12 pb-24">
+<div class="w-full pt-4 pb-8">
   <div
     use:fadeIn
     class="mb-16 transition-all duration-1000 opacity-0 translate-y-8"

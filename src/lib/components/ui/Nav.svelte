@@ -5,9 +5,9 @@
 
   const links = [
     { label: "home", href: "/" },
-    { label: "projects", href: "/projects" },
-    { label: "/uses", href: "/uses" },
-    { label: "contact", href: "/contact" },
+    { label: "projects", href: "/projects/" },
+    { label: "/uses", href: "/uses/" },
+    { label: "contact", href: "/contact/" },
   ];
 
   let navElement;
@@ -38,7 +38,14 @@
 
     await tick();
 
-    const activeLinkEl = navElement?.querySelector(`a[href="${currentPath}"]`);
+    // Try to find exact match first, then fallback to match without trailing slash if needed
+    let activeLinkEl = navElement?.querySelector(`a[href="${currentPath}"]`);
+
+    if (!activeLinkEl && currentPath.endsWith("/") && currentPath.length > 1) {
+      activeLinkEl = navElement?.querySelector(
+        `a[href="${currentPath.slice(0, -1)}"]`,
+      );
+    }
 
     if (activeLinkEl) {
       updateHighlight(activeLinkEl);
@@ -85,7 +92,10 @@
             href={link.href}
             onmouseenter={(e) => updateHighlight(e.currentTarget)}
             class="block px-5 py-2 text-xs sm:text-sm transition-colors duration-300 lowercase tracking-wide focus:outline-none rounded-full
-                               {activePath === link.href
+                               {activePath === link.href ||
+            (activePath === link.href + '/' && link.href !== '/') ||
+            (link.href === activePath + '/' && activePath !== '/') ||
+            (activePath.startsWith(link.href) && link.href !== '/')
               ? 'text-white font-medium'
               : 'text-gray-400 hover:text-gray-200'}"
             aria-label={`Go to ${link.label} page`}
