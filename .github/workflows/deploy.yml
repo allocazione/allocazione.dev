@@ -1,5 +1,8 @@
 name: Deploy to Hosting via FTP
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
