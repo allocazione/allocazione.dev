@@ -61,9 +61,15 @@
   onMount(() => {
     setActiveHighlight(activePath);
 
-    const handleResize = () => setActiveHighlight(activePath);
+    const handleResize = () => {
+      setActiveHighlight(activePath);
+    };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
   });
 
   function handleMouseLeave() {
@@ -77,7 +83,7 @@
   <nav
     bind:this={navElement}
     onmouseleave={handleMouseLeave}
-    class="pointer-events-auto relative flex items-center p-1.5 rounded-full bg-[#1a1a1a]/60 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+    class="pointer-events-auto relative flex items-center p-1 sm:p-1.5 rounded-full bg-[#1a1a1a]/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-w-full overflow-hidden"
     aria-label="Main Navigation"
   >
     <div
@@ -85,13 +91,13 @@
       style={highlightStyle}
     ></div>
 
-    <ul class="flex relative z-10">
+    <ul class="flex relative z-10 w-full justify-between sm:justify-start whitespace-nowrap">
       {#each links as link}
         <li>
           <a
             href={link.href}
             onmouseenter={(e) => updateHighlight(e.currentTarget)}
-            class="block px-5 py-2 text-xs sm:text-sm transition-colors duration-300 lowercase tracking-wide focus:outline-none rounded-full
+            class="block px-3 sm:px-5 py-2 text-[11px] sm:text-sm transition-colors duration-300 lowercase tracking-wide rounded-full focus-ring touch-manipulation
                                {activePath === link.href ||
             (activePath === link.href + '/' && link.href !== '/') ||
             (link.href === activePath + '/' && activePath !== '/') ||

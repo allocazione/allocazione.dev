@@ -23,6 +23,7 @@
     class="md:col-span-1 md:row-span-2 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-8 flex flex-col justify-between relative group overflow-hidden shadow-2xl"
   >
     <div
+      aria-hidden="true"
       class="absolute -top-24 -left-24 w-48 h-48 bg-accent/10 rounded-full blur-[80px] pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100"
     ></div>
 
@@ -71,6 +72,7 @@
             >
               {#if social.name === "GitHub"}
                 <svg
+                  aria-hidden="true"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -84,6 +86,7 @@
                 >
               {:else if social.name === "Discord"}
                 <svg
+                  aria-hidden="true"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -97,6 +100,7 @@
                 >
               {:else if social.name === "Telegram"}
                 <svg
+                  aria-hidden="true"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -110,6 +114,7 @@
                 >
               {:else if social.name === "Steam"}
                 <svg
+                  aria-hidden="true"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -144,6 +149,7 @@
     class="md:col-span-3 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-8 flex flex-col justify-center relative group overflow-hidden shadow-2xl transition-all duration-1000 opacity-0 translate-y-8"
   >
     <div
+      aria-hidden="true"
       class="absolute -bottom-24 -right-24 w-64 h-64 bg-white/2 rounded-full blur-[80px] pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100"
     ></div>
 

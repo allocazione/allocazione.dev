@@ -21,7 +21,8 @@
 </script>
 
 <div
-  class="relative z-10 flex flex-col h-full items-center justify-center text-center focus:outline-none"
+  class="relative z-10 flex flex-col h-full items-center justify-center text-center"
+  aria-label="Current time"
 >
 
   <div

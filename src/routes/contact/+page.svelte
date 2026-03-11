@@ -37,6 +37,7 @@
       <div class="relative z-10 h-full flex flex-col justify-between">
         <div>
           <div
+            aria-hidden="true"
             class="text-accent text-xs tracking-[0.2em] font-light lowercase mb-8 flex items-center gap-3"
           >
             <span class="w-2 h-2 rounded-full bg-accent/30"></span>
@@ -120,6 +121,7 @@
               {social.name}
             </span>
             <svg
+              aria-hidden="true"
               class="w-4 h-4 text-gray-600 group-hover/social:text-accent group-hover/social:translate-x-1 transition-all"
               fill="none"
               stroke="currentColor"
