@@ -132,7 +132,7 @@
 
     <div class="relative z-10 flex justify-between items-center">
       <span class="text-xs text-gray-600 font-light lowercase tracking-wider">
-        i'll lose to be complete and fall, i'll be human after all
+        // i'll lose to be complete and fall, <br> // i'll be human after all
       </span>
       <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
     </div>
