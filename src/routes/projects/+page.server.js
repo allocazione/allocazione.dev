@@ -1,3 +1,5 @@
+import { siteConfig } from '$lib/config.js';
+
 let cache = {
     data: null,
     timestamp: 0
@@ -19,7 +21,7 @@ export const load = async ({ fetch, setHeaders }) => {
             'Cache-Control': 'public, max-age=60'
         });
 
-        const res = await fetch(`https://api.github.com/users/allocazione/repos?sort=updated&per_page=30`);
+        const res = await fetch(`https://api.github.com/users/${siteConfig.github}/repos?sort=updated&per_page=30`);
         
         if (!res.ok) {
             console.error('GitHub API error:', res.statusText);
