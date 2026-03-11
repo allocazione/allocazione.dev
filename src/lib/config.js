@@ -3,7 +3,7 @@ export const siteConfig = {
     profession: "Cybersecurity Intern, Malware Researcher and Linux Tinkerer",
     skills: "optimizations and forensic security",
     avatar: "https://github.com/allocazione.png",
-    email: "[EMAIL_ADDRESS]", 
+    email: "me@allocazione.dev", 
     github: "allocazione",
     statsFmUser: "iriel",
     socials: [
