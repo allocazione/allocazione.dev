@@ -41,16 +41,25 @@ export const load = async ({ fetch, setHeaders }) => {
             totalStars += repo.stargazers_count;
             
             let tags = [];
+            const isPersonal = repo.name.toLowerCase() === repo.owner.login.toLowerCase();
+
             if (repo.language) {
                 const lang = repo.language;
                 languageCounts[lang] = (languageCounts[lang] || 0) + 1;
                 tags.push(lang.toLowerCase());
+            } else if (isPersonal) {
+                languageCounts['Markdown'] = (languageCounts['Markdown'] || 0) + 1;
+            }
+            
+            if (isPersonal && !tags.includes('markdown')) {
+                tags.push('markdown');
             }
             
             return {
                 title: repo.name.toLowerCase(),
                 description: repo.description ? repo.description.toLowerCase() : 'no description provided.',
                 link: repo.html_url,
+                pushedAt: repo.pushed_at,
                 tags
             };
         });
@@ -84,7 +93,8 @@ export const load = async ({ fetch, setHeaders }) => {
             'Shell': '#89e051',
             'Vue': '#41b883',
             'Lua': '#000080',
-            'Sass': '#a53b70'
+            'Sass': '#a53b70',
+            'Markdown': '#083fa1'
         };
 
         const topLanguages = Object.entries(languageCounts)

@@ -97,6 +97,7 @@
             description={project.title === 'allocazione.dev' ? 'this very own website source code!' : project.description}
             link={project.link}
             tags={project.tags}
+            updatedAt={project.pushedAt}
             external={true}
           />
         </div>

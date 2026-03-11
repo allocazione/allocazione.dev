@@ -1,5 +1,15 @@
 <script>
-  let { title, description, link, tags = [], external = false } = $props();
+  let { title, description, link, tags = [], external = false, updatedAt = null } = $props();
+
+  function formatDate(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+          month: 'short', 
+          day: 'numeric', 
+          year: 'numeric' 
+      }).toLowerCase();
+  }
 </script>
 
 <a href={link} target={external ? '_blank' : null} rel={external ? 'noopener noreferrer' : null} class="group block relative overflow-hidden rounded-3xl border border-[#252525] bg-transparent p-6 hover:bg-white/2 transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_4px_30px_rgba(255,255,255,0.03)] focus:outline-none focus:ring-2 focus:ring-accent/30 h-full">
@@ -11,9 +21,15 @@
 
         <h3 class="text-sm font-medium text-gray-200 mb-2 lowercase tracking-wider font-['Space_Mono']">{title}</h3>
         
-        <p class="text-xs text-gray-500 leading-relaxed mb-6 grow lowercase">
+        <p class="text-xs text-gray-500 leading-relaxed mb-4 grow lowercase">
             {description}
         </p>
+
+        {#if updatedAt}
+            <div class="flex items-center gap-2 mb-6 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
+                <span class="text-[9px] font-['Space_Mono'] text-gray-400 tracking-widest lowercase">last updated {formatDate(updatedAt)}</span>
+            </div>
+        {/if}
 
         {#if tags.length > 0}
             <div class="flex flex-wrap gap-2 mt-auto">
