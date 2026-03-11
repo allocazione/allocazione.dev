@@ -22,5 +22,8 @@
 	"dependencies": {
 		"animejs": "^4.3.6",
 		"simple-icons": "^16.11.0"
+	},
+	"overrides": {
+		"cookie": "^0.7.0"
 	}
 }
