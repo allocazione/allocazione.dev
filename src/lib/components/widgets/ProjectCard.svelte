@@ -12,7 +12,7 @@
   }
 </script>
 
-<a href={link} target={external ? '_blank' : null} rel={external ? 'noopener noreferrer' : null} class="group block relative overflow-hidden rounded-3xl border border-[#252525] bg-transparent p-6 hover:bg-white/2 transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_4px_30px_rgba(255,255,255,0.03)] focus-ring h-full">
+<a href={link} target={external ? '_blank' : null} rel={external ? 'noopener noreferrer' : null} class="group block relative overflow-hidden rounded-3xl border border-[#252525] bg-transparent p-6 transition-all duration-500 focus-ring h-full">
     <div class="relative z-10 flex flex-col h-full">
 
         <span class="absolute top-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none grid place-items-center">
@@ -26,7 +26,7 @@
         </p>
 
         {#if updatedAt}
-            <div class="flex items-center gap-2 mb-6 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
+            <div class="flex items-center gap-2 mb-6 opacity-40 transition-opacity duration-500 card-date">
                 <span class="text-[9px] font-['Space_Mono'] text-gray-400 tracking-widest lowercase">last updated {formatDate(updatedAt)}</span>
             </div>
         {/if}
@@ -34,7 +34,7 @@
         {#if tags.length > 0}
             <div class="flex flex-wrap gap-2 mt-auto">
                 {#each tags as tag}
-                    <span class="text-[10px] text-gray-600 border border-white/5 px-2 py-0.5 rounded backdrop-blur-sm lowercase tracking-widest group-hover:border-white/10 group-hover:text-gray-400 transition-colors">
+                    <span class="text-[10px] text-gray-600 border border-white/5 px-2 py-0.5 rounded backdrop-blur-sm lowercase tracking-widest transition-colors card-tag">
                         {tag}
                     </span>
                 {/each}
@@ -43,5 +43,33 @@
     </div>
     
 
-    <div class="absolute inset-0 bg-linear-to-tr from-accent/0 via-accent/1.5 to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="absolute inset-0 bg-linear-to-tr from-accent/0 via-accent/1.5 to-accent/3 opacity-0 transition-opacity duration-500 card-glow"></div>
 </a>
+
+<style>
+  @media (hover: hover) {
+    a:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+      transform: translateY(-4px);
+      border-color: rgba(var(--accent-rgb), 0.3);
+      box-shadow: 0 4px 30px rgba(255, 255, 255, 0.03);
+    }
+    
+    a:hover .card-glow {
+      opacity: 1;
+    }
+
+    a:hover svg {
+        opacity: 1;
+    }
+
+    a:hover .card-date {
+        opacity: 0.6;
+    }
+
+    a:hover .card-tag {
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #9ca3af;
+    }
+  }
+</style>

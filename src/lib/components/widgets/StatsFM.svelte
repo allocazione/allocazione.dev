@@ -246,13 +246,13 @@
         >
           {#each data.track.artists as artist, i}
             {#if spotifyUrls.artists[artist.id]}
-              <a
-                href={spotifyUrls.artists[artist.id]}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="relative inline tracking-widest mr-[-0.1em] hover:text-gray-200 transition-colors duration-200 hover:before:scale-x-100 before:content-[''] before:absolute before:w-full before:h-px before:bottom-0 before:left-0 before:bg-accent before:scale-x-0 before:origin-bottom-right hover:before:origin-bottom-left before:transition-transform before:duration-300"
-                >{artist.name}</a
-              >
+                <a
+                  href={spotifyUrls.artists[artist.id]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="relative inline tracking-widest mr-[-0.1em] artist-link"
+                  >{artist.name}</a
+                >
             {:else}
               <span class="tracking-widest mr-[-0.1em]"
                 >{artist.name}</span
@@ -266,3 +266,30 @@
     </div>
   {/if}
 </div>
+
+<style>
+  @media (hover: hover) {
+    .artist-link {
+        transition: color 200ms;
+    }
+    .artist-link:hover {
+        color: #e5e7eb; /* text-gray-200 */
+    }
+    .artist-link::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-accent);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 300ms;
+    }
+    .artist-link:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+  }
+</style>

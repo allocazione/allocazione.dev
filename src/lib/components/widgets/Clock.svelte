@@ -26,10 +26,18 @@
 >
 
   <div
-    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+    class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-700 pointer-events-none clock-glow"
   >
     <div class="w-32 h-32 bg-white/3 rounded-full blur-[50px]"></div>
   </div>
+
+<style>
+  @media (hover: hover) {
+    :global(.group:hover) .clock-glow {
+      opacity: 1;
+    }
+  }
+</style>
 
 
   <div

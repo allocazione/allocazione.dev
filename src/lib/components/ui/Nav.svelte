@@ -76,7 +76,7 @@
 </script>
 
 <div
-  class="fixed top-6 left-0 right-0 z-40 flex justify-center w-full pointer-events-none px-4"
+  class="fixed top-[calc(1.5rem+env(safe-area-inset-top,0px))] left-0 right-0 z-40 flex justify-center w-full pointer-events-none px-4"
 >
   <nav
     bind:this={navElement}
@@ -102,7 +102,7 @@
             (link.href === activePath + '/' && activePath !== '/') ||
             (activePath.startsWith(link.href) && link.href !== '/')
               ? 'text-white font-medium'
-              : 'text-gray-400 hover:text-gray-200'}"
+              : 'text-gray-400'}"
             aria-label={`Go to ${link.label} page`}
           >
             {link.label}
@@ -112,3 +112,11 @@
     </ul>
   </nav>
 </div>
+
+<style>
+  @media (hover: hover) {
+    a:not(.text-white):hover {
+      color: #e5e7eb;
+    }
+  }
+</style>
