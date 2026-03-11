@@ -11,7 +11,7 @@
   <meta name="description" content="Reach out to {name}." />
 </svelte:head>
 
-<div class="w-full pt-12 pb-24">
+<div class="w-full pt-4 pb-8">
   <div
     use:fadeIn
     class="mb-16 transition-all duration-1000 opacity-0 translate-y-8"
@@ -37,6 +37,7 @@
       <div class="relative z-10 h-full flex flex-col justify-between">
         <div>
           <div
+            aria-hidden="true"
             class="text-accent text-xs tracking-[0.2em] font-light lowercase mb-8 flex items-center gap-3"
           >
             <span class="w-2 h-2 rounded-full bg-accent/30"></span>
@@ -49,7 +50,7 @@
           </p>
 
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-white/[0.03]"
+            class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-white/3"
           >
             <div>
               <h3
@@ -120,6 +121,7 @@
               {social.name}
             </span>
             <svg
+              aria-hidden="true"
               class="w-4 h-4 text-gray-600 group-hover/social:text-accent group-hover/social:translate-x-1 transition-all"
               fill="none"
               stroke="currentColor"

@@ -147,6 +147,7 @@
         >now listening on</span
       >
       <svg
+        aria-hidden="true"
         class="h-2.5 w-auto text-accent"
         style="display:inline-block;vertical-align:middle;"
         viewBox="0 0 509 509"
@@ -161,6 +162,7 @@
       >
     {:else}
       <svg
+        aria-hidden="true"
         class="w-3 h-3 text-gray-500"
         fill="none"
         stroke="currentColor"
@@ -182,6 +184,7 @@
         >last played on</span
       >
       <svg
+        aria-hidden="true"
         class="h-2.5 w-auto text-gray-500"
         style="display:inline-block;vertical-align:middle;"
         viewBox="0 0 509 509"
