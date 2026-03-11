@@ -7,7 +7,8 @@
   let { children } = $props();
 
   afterNavigate(() => {
-    window.scrollTo(0, 0);
+    const container = document.getElementById("app-container");
+    if (container) container.scrollTo(0, 0);
   });
 
   onNavigate((navigation) => {
@@ -78,23 +79,28 @@
   Skip to main content
 </a>
 
-<div class="overlay" aria-hidden="true"></div>
-
-<div
-  class="min-h-screen flex flex-col items-center justify-between font-['Inter'] relative w-full"
->
-  <div
-    class="fixed top-0 inset-x-0 h-125 bg-linear-to-b from-white/2 to-transparent pointer-events-none z-0"
-  ></div>
+<div id="app-container">
+  <div class="overlay" aria-hidden="true"></div>
 
   <div
-    class="relative z-60 w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen"
+    class="min-h-screen flex flex-col items-center justify-between font-['Inter'] relative w-full"
   >
-    <Nav />
+    <div
+      class="fixed top-0 inset-x-0 h-125 bg-linear-to-b from-white/2 to-transparent pointer-events-none z-0"
+    ></div>
 
-    <main id="main-content" class="grow flex flex-col justify-center py-20 relative w-full">
-      {@render children()}
-    </main>
+    <div
+      class="relative z-60 w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen"
+    >
+      <Nav />
+
+      <main
+        id="main-content"
+        class="grow flex flex-col justify-center py-20 pb-[calc(5rem+env(safe-area-inset-bottom))] relative w-full"
+      >
+        {@render children()}
+      </main>
+    </div>
   </div>
 </div>
 
