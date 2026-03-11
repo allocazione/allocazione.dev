@@ -10,17 +10,6 @@
     window.scrollTo(0, 0);
   });
 
-  onNavigate((navigation) => {
-    if (!document.startViewTransition) return;
-
-    return new Promise((resolve) => {
-      document.startViewTransition(async () => {
-        resolve();
-        await navigation.complete;
-      });
-    });
-  });
-
   onMount(() => {
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
