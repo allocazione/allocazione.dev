@@ -11,7 +11,16 @@ const config = {
 			fallback: '404.html',
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			handleHttpError: ({ path, referrer, message }) => {
+				// Suppress 404 error for missing favicon
+				if (path === '/favicon.png') {
+					return;
+				}
+				throw new Error(message);
+			}
+		}
 	}
 };
 

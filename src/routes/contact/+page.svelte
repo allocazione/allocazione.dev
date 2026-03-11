@@ -50,7 +50,7 @@
           </p>
 
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-white/[0.03]"
+            class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-white/3"
           >
             <div>
               <h3
