@@ -36,8 +36,6 @@
   async function setActiveHighlight(currentPath) {
     if (!browser) return;
 
-    await tick();
-
     // Try to find exact match first, then fallback to match without trailing slash if needed
     let activeLinkEl = navElement?.querySelector(`a[href="${currentPath}"]`);
 
@@ -96,6 +94,7 @@
         <li>
           <a
             href={link.href}
+            onclick={(e) => updateHighlight(e.currentTarget)}
             onmouseenter={(e) => updateHighlight(e.currentTarget)}
             class="block px-3 sm:px-5 py-2 text-[11px] sm:text-sm transition-colors duration-300 lowercase tracking-wide rounded-full focus-ring touch-manipulation
                                {activePath === link.href ||
