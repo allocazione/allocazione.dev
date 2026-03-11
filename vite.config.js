@@ -4,7 +4,16 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
-	define: {
-		__SVELTEKIT_EXPERIMENTAL_USE_TRANSFORM_ERROR__: false
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks(id) {
+					// Keep all svelte internals in one chunk to avoid circular dep warnings
+					if (id.includes('node_modules/svelte/')) {
+						return 'svelte-internals';
+					}
+				}
+			}
+		}
 	}
 });

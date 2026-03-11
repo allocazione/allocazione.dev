@@ -12,11 +12,11 @@
   }
 </script>
 
-<a href={link} target={external ? '_blank' : null} rel={external ? 'noopener noreferrer' : null} class="group block relative overflow-hidden rounded-3xl border border-[#252525] bg-transparent p-6 hover:bg-white/2 transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_4px_30px_rgba(255,255,255,0.03)] focus-ring h-full">
+<a href={link} target={external ? '_blank' : null} rel={external ? 'noopener noreferrer' : null} class="group block relative overflow-hidden rounded-3xl border border-[#252525] bg-transparent p-6 hover:bg-white/2 transition-all duration-500 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_4px_30px_rgba(255,255,255,0.03)] focus:outline-none focus:ring-2 focus:ring-accent/30 h-full">
     <div class="relative z-10 flex flex-col h-full">
 
         <span class="absolute top-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none grid place-items-center">
-            <svg aria-hidden="true" class="w-3 h-3 text-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+            <svg class="w-3 h-3 text-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
         </span>
 
         <h3 class="text-sm font-medium text-gray-200 mb-2 lowercase tracking-wider font-['Space_Mono']">{title}</h3>
