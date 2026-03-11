@@ -85,7 +85,7 @@
     aria-label="Main Navigation"
   >
     <div
-      class="absolute top-1.5 bottom-1.5 left-0 bg-white/10 rounded-full transition-all duration-300 ease-out z-0 border border-white/5"
+      class="absolute top-1.5 bottom-1.5 left-0 bg-white/10 rounded-full sm:transition-all sm:duration-300 sm:ease-out z-0 border border-white/5"
       style={highlightStyle}
     ></div>
 
