@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 50;
+}
+
+#subtext {
+    user-select: none;
+    color: rgb(124, 124, 124);
+    position: absolute;
+    bottom: 0;
+}
+
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+h1 {
+    color: var(--accent, #e16666);
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    font-weight: 300;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 0 30px rgba(var(--accent-rgb, 225, 102, 102), 0.4);
+}
+
+
+@theme {
+
+    --color-bg-dark: #0a0a0a;
+    --color-text-soft: #d1d5db;
+    --color-text-muted: #9ca3af;
+    --color-accent: var(--accent, #e16666);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-soft);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(var(--accent-rgb, 225, 102, 102), 0.2);
+    color: #fff;
+}
