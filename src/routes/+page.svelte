@@ -22,7 +22,7 @@
 </svelte:head>
 
 <div
-  class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-4 md:gap-6 w-full animate-page-in relative z-10"
+  class="home-page grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-4 md:gap-6 w-full animate-page-in relative z-10"
 >
   <div
     class="md:col-span-1 md:row-span-2 self-center bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-8 flex flex-col justify-center relative group overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.03)]"
