@@ -108,7 +108,7 @@
         {href}
         target="_blank"
         rel="noopener noreferrer"
-        class="relative inline-block hover:before:scale-x-100 before:content-[''] before:absolute before:w-full before:h-[1px] before:bottom-0 before:left-0 before:bg-accent before:scale-x-0 before:origin-bottom-right hover:before:origin-bottom-left before:transition-transform before:duration-300 block md:inline"
+        class="relative inline-block hover:before:scale-x-100 before:content-[''] before:absolute before:w-full before:h-px before:bottom-0 before:left-0 before:bg-accent before:scale-x-0 before:origin-bottom-right hover:before:origin-bottom-left before:transition-transform before:duration-300 md:inline"
         class:pointer-events-none={!href}
       >
         {text}
@@ -127,7 +127,7 @@
             {href}
             target="_blank"
             rel="noopener noreferrer"
-            class="relative inline-block hover:before:scale-x-100 before:content-[''] before:absolute before:w-full before:h-[1px] before:bottom-0 before:left-0 before:bg-accent before:scale-x-0 before:origin-bottom-right hover:before:origin-bottom-left before:transition-transform before:duration-300"
+            class="relative inline-block hover:before:scale-x-100 before:content-[''] before:absolute before:w-full before:h-px before:bottom-0 before:left-0 before:bg-accent before:scale-x-0 before:origin-bottom-right hover:before:origin-bottom-left before:transition-transform before:duration-300"
             class:pointer-events-none={!href}
             tabindex="-1"
           >

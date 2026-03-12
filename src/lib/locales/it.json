@@ -7,7 +7,7 @@
   },
   "home": {
     "title": "@seleneftw / home",
-    "greeting": "ciao, sono {name}.",
+    "greeting": "ciao, mi chiamo {name}.",
     "short_for": "abbreviativo di Selene",
     "who_am_i": "chi sono?",
     "about_p1": "mi occupo di ricerca e sviluppo con focus su <span class=\"text-gray-200\">sistemi low-level</span> e <span class=\"text-gray-200\">sicurezza</span>. mi piacciono le sfide tecniche nell'ottimizzare <span class=\"text-gray-200\">architetture ad alta concorrenza</span> e sviluppare <span class=\"text-gray-200\">metodologie forensi</span> che scalano davvero. passo la maggior parte del mio tempo lavorando con <span class=\"text-gray-200\">C, Rust, Go e Python</span> per costruire sistemi che siano sia performanti che memory-safe.",

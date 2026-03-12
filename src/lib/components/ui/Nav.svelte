@@ -275,7 +275,7 @@
                 <img
                   src={flagUrls[loc.id]}
                   alt={loc.label}
-                  class="w-5 h-3.5 sm:w-6 sm:h-4 object-cover transition-transform duration-300 group-hover/item:scale-110 rounded-[2px] shadow-sm"
+                  class="w-5 h-3.5 sm:w-6 sm:h-4 object-cover transition-transform duration-300 group-hover/item:scale-110 rounded-xs shadow-sm"
                 />
               </button>
             {/each}
