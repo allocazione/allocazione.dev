@@ -12,6 +12,9 @@
 
 :root {
     color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .overlay {
@@ -77,7 +80,6 @@ main {
     color: #fff;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -117,3 +119,99 @@ html {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--text-width)));
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeInStaggered {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Animation utilities --- */
+.animate-scroll-text {
+    animation: scrollText;
+}
+
+.animate-page-in {
+    will-change: transform, opacity;
+}
+
+.animate-page-in > *:not(style):not(script) {
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    opacity: 0;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.animate-page-in > *:nth-child(1) { animation-delay: 100ms; }
+.animate-page-in > *:nth-child(2) { animation-delay: 200ms; }
+.animate-page-in > *:nth-child(3) { animation-delay: 300ms; }
+.animate-page-in > *:nth-child(4) { animation-delay: 400ms; }
+.animate-page-in > *:nth-child(5) { animation-delay: 500ms; }
+.animate-page-in > *:nth-child(6) { animation-delay: 600ms; }
+.animate-page-in > *:nth-child(7) { animation-delay: 700ms; }
+
+.animate-stagger-in {
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    opacity: 0;
+}
+
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.animate-fade-in-staggered {
+    animation: fadeInStaggered 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+

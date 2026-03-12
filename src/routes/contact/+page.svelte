@@ -1,42 +1,41 @@
 <script>
   import Button from "$lib/components/ui/Button.svelte";
   import { siteConfig } from "$lib/config.js";
-  import { fadeIn } from "$lib/actions/fadeIn.js";
-  import { tooltip } from "$lib/actions/tooltip.js";
   import { t } from "svelte-i18n";
   const { email, name } = siteConfig;
-  const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
+  const randomDescription =
+    siteConfig.descriptions[
+      Math.floor(Math.random() * siteConfig.descriptions.length)
+    ];
 </script>
 
 <svelte:head>
-  <title>{$t('contact.title')}</title>
-  <meta property="og:title" content={$t('contact.title')} />
+  <title>{$t("contact.title")}</title>
+  <meta property="og:title" content={$t("contact.title")} />
   <meta name="description" content={randomDescription} />
   <meta property="og:description" content={randomDescription} />
   <meta name="twitter:description" content={randomDescription} />
 </svelte:head>
 
 <div class="w-full pt-4 pb-8">
-  <div
-    use:fadeIn
-    class="mb-16 transition-all duration-1000 opacity-0 translate-y-8"
-  >
+  <div class="mb-16 animate-page-in">
     <h1
       class="font-['Space_Mono'] text-accent text-2xl lowercase tracking-widest mb-4"
     >
-      {$t('contact.header')}
+      {$t("contact.header")}
     </h1>
     <p
       class="text-gray-400 font-light text-sm max-w-xl leading-loose lowercase"
     >
-      {$t('contact.subheader')}
+      {$t("contact.subheader")}
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 animate-page-in"
+  >
     <div
-      use:fadeIn
-      class="md:col-span-2 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-12 group relative overflow-hidden shadow-2xl transition-all duration-1000 opacity-0 translate-y-8"
+      class="md:col-span-2 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-12 group relative overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.06)]"
     >
       <div class="relative z-10 h-full flex flex-col justify-between">
         <div>
@@ -49,7 +48,7 @@
           <p
             class="text-xl text-gray-300 font-light leading-relaxed mb-12 max-w-lg"
           >
-            {$t('contact.reach_out')}
+            {$t("contact.reach_out")}
           </p>
 
           <div
@@ -59,24 +58,24 @@
               <h3
                 class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-[0.2em] mb-3"
               >
-                {$t('contact.availability')}
+                {$t("contact.availability")}
               </h3>
               <p
                 class="text-sm text-gray-400 font-light lowercase leading-relaxed italic"
               >
-                {$t('contact.availability_desc')}
+                {$t("contact.availability_desc")}
               </p>
             </div>
             <div>
               <h3
                 class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-[0.2em] mb-3"
               >
-                {$t('contact.protocol')}
+                {$t("contact.protocol")}
               </h3>
               <p
                 class="text-sm text-gray-400 font-light lowercase leading-relaxed italic"
               >
-                {$t('contact.protocol_desc')}
+                {$t("contact.protocol_desc")}
               </p>
             </div>
           </div>
@@ -86,12 +85,13 @@
           class="flex flex-col sm:flex-row items-start sm:items-center gap-8 mt-4"
         >
           <Button href={`mailto:${email}`}>
-            {$t('contact.email_me')} <span class="ml-2 text-accent">&lt;/&gt;</span>
+            {$t("contact.email_me")}
+            <span class="ml-2 text-accent">&lt;/&gt;</span>
           </Button>
           <div class="flex flex-col gap-1">
             <span
               class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-widest"
-              >{$t('contact.direct_inquiry')}</span
+              >{$t("contact.direct_inquiry")}</span
             >
             <span class="text-sm text-gray-400 lowercase">{email}</span>
           </div>
@@ -100,14 +100,12 @@
     </div>
 
     <div
-      use:fadeIn
-      style="transition-delay: 150ms"
-      class="md:col-span-1 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-10 group relative overflow-hidden shadow-2xl transition-all duration-1000 opacity-0 translate-y-8"
+      class="md:col-span-1 bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-10 group relative overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.06)]"
     >
       <h2
         class="text-gray-500 text-[10px] tracking-[0.3em] font-['Space_Mono'] lowercase mb-12"
       >
-        {$t('contact.presence')}
+        {$t("contact.presence")}
       </h2>
 
       <div class="space-y-4">
@@ -145,7 +143,7 @@
         <span
           class="text-[10px] text-gray-600 font-['Space_Mono'] lowercase tracking-[0.2em] animate-pulse"
         >
-          {$t('contact.waiting_signal')}
+          {$t("contact.waiting_signal")}
         </span>
       </div>
     </div>

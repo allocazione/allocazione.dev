@@ -1,5 +1,4 @@
 <script>
-  import { fadeIn } from "$lib/actions/fadeIn.js";
   import { siteConfig } from "$lib/config.js";
   import { t } from "svelte-i18n";
 
@@ -20,8 +19,7 @@
 
 <div class="w-full pt-12 pb-24">
   <div
-    use:fadeIn
-    class="mb-16 transition-all duration-1000 opacity-0 translate-y-8"
+    class="mb-16 animate-page-in"
   >
     <div class="flex items-center justify-between mb-4">
       <h1
@@ -59,16 +57,14 @@
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10 animate-page-in">
     {#each categories as category, i}
       <div
-        use:fadeIn
-        class="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-8 group relative overflow-hidden shadow-2xl transition-all duration-1000 opacity-0 translate-y-8"
-        style="transition-delay: {i * 100}ms"
+        class="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl p-8 group relative overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.03)]"
       >
         <div
           aria-hidden="true"
-          class="absolute -top-12 -right-12 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          class="absolute -top-12 -right-12 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none opacity-0"
         ></div>
 
         <h2
@@ -121,8 +117,7 @@
     {/each}
 
     <div
-      use:fadeIn
-      class="bg-[#0f0f0f]/40 border border-[#252525] border-dashed rounded-4xl p-8 flex items-center justify-center transition-all duration-1000 opacity-0 translate-y-8"
+      class="bg-[#0f0f0f]/40 border border-[#252525] border-dashed rounded-4xl p-8 flex items-center justify-center"
     >
       <span
         class="text-gray-600 text-xs font-['Space_Mono'] tracking-widest lowercase animate-pulse"

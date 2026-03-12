@@ -1,19 +1,20 @@
 <script>
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import { onNavigate, afterNavigate } from "$app/navigation";
   import "../app.css";
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
   import "$lib/locales/i18n.js";
   import { isLoading, waitLocale } from "svelte-i18n";
-import { page } from "$app/state";
+  import { page } from "$app/state";
 
   let { children } = $props();
 
   const pageName = $derived(
     page.route?.id === "/"
       ? "home"
-      : (page.route?.id?.replace(/^\//, "") || "error"),
+      : page.route?.id?.replace(/^\//, "") || "error",
   );
   let localeLoaded = $state(false);
 
@@ -29,7 +30,7 @@ import { page } from "$app/state";
     ];
 
   afterNavigate(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   onMount(() => {
@@ -50,12 +51,13 @@ import { page } from "$app/state";
     };
 
     if (!getCookie("accent_color")) {
-      const randomColor = `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0")}`;
+      const pickLight = () =>
+        Math.floor(128 + Math.random() * 127)
+          .toString(16)
+          .padStart(2, "0");
+      const randomColor = `#${pickLight()}${pickLight()}${pickLight()}`;
       document.cookie = `accent_color=${encodeURIComponent(randomColor)}; max-age=31536000; path=/; samesite=lax`;
 
-      // Apply instantly without a full page reload to fix the "double refresh" bug
       document.documentElement.style.setProperty("--accent", randomColor);
       document.documentElement.style.setProperty(
         "--accent-rgb",
@@ -93,6 +95,23 @@ import { page } from "$app/state";
 
 <div class="overlay" aria-hidden="true"></div>
 
+<svg
+  width="0"
+  height="0"
+  class="absolute pointer-events-none"
+  aria-hidden="true"
+>
+  <filter id="ambilight" width="200%" height="200%" x="-50%" y="-50%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur"
+    ></feGaussianBlur>
+    <feColorMatrix in="blur" type="saturate" values="2" result="saturated"
+    ></feColorMatrix>
+    <feComponentTransfer in="saturated">
+      <feFuncA type="linear" slope="0.6"></feFuncA>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
 <div
   class="min-h-screen flex flex-col items-center justify-between font-inter relative w-full"
 >
@@ -104,14 +123,21 @@ import { page } from "$app/state";
     id="main-content"
     class="relative z-60 w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen"
   >
-    {#if !$isLoading && localeLoaded}
-      <Nav />
+    <Nav />
 
-      <main class="grow flex flex-col justify-center py-20 relative w-full">
-        {@render children()}
-      </main>
-    {:else}
-      <div class="grow flex flex-col items-center justify-center">
+    <main
+      class="grow flex flex-col justify-center py-20 relative w-full transition-all duration-500 {localeLoaded
+        ? 'opacity-100'
+        : 'opacity-0 invisible pointer-events-none'}"
+    >
+      {@render children()}
+    </main>
+
+    {#if !localeLoaded}
+      <div
+        out:fade={{ duration: 300 }}
+        class="fixed inset-0 z-100 flex items-center justify-center bg-bg-dark pointer-events-none"
+      >
         <div
           class="w-8 h-8 border-2 border-accent/20 border-t-accent rounded-full animate-spin"
         ></div>

@@ -2,7 +2,6 @@
   import ProjectCard from "$lib/components/widgets/ProjectCard.svelte";
   import { siteConfig } from "$lib/config.js";
   import { tooltip } from "$lib/actions/tooltip.js";
-  import { fadeIn } from "$lib/actions/fadeIn.js";
   import { onMount } from "svelte";
   import { invalidateAll } from "$app/navigation";
   import { t } from "svelte-i18n";
@@ -24,8 +23,7 @@
 
 <div class="w-full pt-12 pb-24">
   <div
-    use:fadeIn
-    class="mb-16 transition-all duration-1000 opacity-0 translate-y-8"
+    class="mb-16 animate-fade-in"
   >
     <h1
       class="font-['Space_Mono'] text-accent text-2xl lowercase tracking-widest mb-4"
@@ -41,8 +39,7 @@
 
   {#if data.stats && data.stats.topLanguages.length > 0}
     <div
-      use:fadeIn
-      class="mb-16 relative z-10 w-full transition-all duration-1000 opacity-0 translate-y-8"
+      class="mb-16 relative z-10 w-full animate-fade-in"
     >
       <div class="flex items-center justify-between mb-4">
         <span
@@ -92,8 +89,7 @@
   {/if}
 
   <div
-    use:fadeIn
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 transition-all duration-1000 opacity-0 translate-y-8 delay-100 relative z-10"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 animate-fade-in relative z-10"
   >
     {#if data.projects.length === 0}
       <div
@@ -108,10 +104,10 @@
     {:else}
       {#each data.projects as project}
         <div
-          class="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl overflow-hidden shadow-2xl h-full flex flex-col group relative"
+          class="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#252525] rounded-4xl overflow-hidden shadow-2xl h-full flex flex-col group relative transition-all duration-500 hover:shadow-[0_0_15px_rgba(var(--accent-rgb),0.03)]"
         >
           <div
-            class="absolute inset-0 bg-linear-to-br from-white/2 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            class="absolute inset-0 bg-linear-to-br from-white/2 to-transparent pointer-events-none opacity-0"
           ></div>
           <ProjectCard
             title={project.title}

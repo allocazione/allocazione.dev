@@ -40,7 +40,7 @@ Docs for the allocazione.dev website. Built using Svelte 5 and SvelteKit + Tailw
 ```text
 src/
 ├── lib/
-│   ├── actions/          # DOM-level interaction modules (fadeIn, tooltip)
+│   ├── actions/          # DOM-level interaction modules ( tooltip )
 │   ├── components/       
 │   │   ├── ui/           # Atomic UI elements (Button, Nav, Ticker)
 │   │   └── widgets/      # Integrated feature modules (Clock, StatsFM)
