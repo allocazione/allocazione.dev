@@ -11,7 +11,7 @@
 
 <svelte:head>
   <title>@seleneftw / projects</title>
-  <meta property="og:title" content="@seleneftw / the archive" />
+  <meta property="og:title" content="@seleneftw / projects" />
 </svelte:head>
 
 <div class="w-full pt-12 pb-24">

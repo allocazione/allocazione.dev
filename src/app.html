@@ -28,15 +28,14 @@
 		<meta name="twitter:site" content="@seleneftw" />
 		<meta name="twitter:creator" content="@seleneftw" />
 		
-		<!-- Preconnect and Asynchronous Font Loading -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" media="print" onload="this.media='all'">
+		<!-- Preconnect and Asynchronous Font Loading (Static & Local) -->
+		<link rel="preload" as="style" href="/fonts.css">
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/space-mono-400.woff2" crossorigin>
+		<link rel="stylesheet" href="/fonts.css" media="print" onload="this.media='all'">
 		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap">
+			<link rel="stylesheet" href="/fonts.css">
 		</noscript>
-
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://allocazione.dev" />
 
