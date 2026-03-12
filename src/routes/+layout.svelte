@@ -3,8 +3,12 @@
   import { onNavigate, afterNavigate } from "$app/navigation";
   import "../app.css";
   import Nav from "$lib/components/ui/Nav.svelte";
+  import { siteConfig } from "$lib/config.js";
 
   let { children } = $props();
+
+  // Pick a random description at build time (and client side during hydration)
+  const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
 
   afterNavigate(() => {
     window.scrollTo(0, 0);
@@ -44,6 +48,10 @@
 </script>
 
 <svelte:head>
+  <meta name="description" content={randomDescription} />
+  <meta property="og:description" content={randomDescription} />
+  <meta name="twitter:description" content={randomDescription} />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",

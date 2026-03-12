@@ -12,7 +12,7 @@
 
 <svelte:head>
   <title>@seleneftw / home</title>
-  <meta name="description" content="portfolio of {name}" />
+  <meta property="og:title" content="@seleneftw / home" />
 </svelte:head>
 
 <div

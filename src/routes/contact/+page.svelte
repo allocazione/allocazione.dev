@@ -8,7 +8,7 @@
 
 <svelte:head>
   <title>@seleneftw / contact</title>
-  <meta name="description" content="Reach out to {name}." />
+  <meta property="og:title" content="@seleneftw / contact" />
 </svelte:head>
 
 <div class="w-full pt-4 pb-8">

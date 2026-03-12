@@ -11,10 +11,7 @@
 
 <svelte:head>
   <title>@seleneftw / projects</title>
-  <meta
-    name="description"
-    content="an archive of my digital garden and open source contributions."
-  />
+  <meta property="og:title" content="@seleneftw / the archive" />
 </svelte:head>
 
 <div class="w-full pt-12 pb-24">

@@ -66,5 +66,14 @@ export const siteConfig = {
             ]
         }
     ],
+    descriptions: [
+        "// is that the tempo i'm meant to follow?",
+        "// if i live to be a weathervane, always poining off, to lead you along the flyway",
+        "// rain or shine, im by your side, so why won't you look my way?",
+        "// oh, to be your constant companion!",
+        "// cadmium colors painted inside me",
+        "// その過去を 捨てて ここまで おいで", 
+        "// as long as there are stars up above"
+    ],
     lastUpdated: "2026-03-10"
 };
