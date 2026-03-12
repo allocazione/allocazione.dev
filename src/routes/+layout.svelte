@@ -93,15 +93,13 @@
   ></div>
 
   <div
+    id="main-content"
     class="relative z-60 w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen"
   >
     {#if !$isLoading && localeLoaded}
       <Nav />
 
-      <main
-        id="main-content"
-        class="grow flex flex-col justify-center py-20 relative w-full"
-      >
+      <main class="grow flex flex-col justify-center py-20 relative w-full">
         {@render children()}
       </main>
     {:else}
