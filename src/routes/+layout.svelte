@@ -16,7 +16,10 @@
   });
 
   // Pick a random description at build time (and client side during hydration)
-  const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
+  const randomDescription =
+    siteConfig.descriptions[
+      Math.floor(Math.random() * siteConfig.descriptions.length)
+    ];
 
   afterNavigate(() => {
     window.scrollTo(0, 0);
@@ -67,10 +70,7 @@
       "name": "Sel",
       "jobTitle": "Cybersecurity Researcher",
       "url": "https://allocazione.dev",
-      "sameAs": [
-        "https://github.com/allocazione",
-        "https://t.me/seleneftw"
-      ],
+      "sameAs": ["https://github.com/allocazione", "https://t.me/seleneftw"],
       "description": "Cybersecurity Intern, Malware Researcher and Linux Tinkerer specializing in low-level systems and security."
     }
   </script>
@@ -98,12 +98,17 @@
     {#if !$isLoading && localeLoaded}
       <Nav />
 
-      <main id="main-content" class="grow flex flex-col justify-center py-20 relative w-full">
+      <main
+        id="main-content"
+        class="grow flex flex-col justify-center py-20 relative w-full"
+      >
         {@render children()}
       </main>
     {:else}
       <div class="grow flex flex-col items-center justify-center">
-        <div class="w-8 h-8 border-2 border-accent/20 border-t-accent rounded-full animate-spin"></div>
+        <div
+          class="w-8 h-8 border-2 border-accent/20 border-t-accent rounded-full animate-spin"
+        ></div>
       </div>
     {/if}
   </div>
