@@ -177,10 +177,6 @@ html {
     animation: scrollText;
 }
 
-.animate-page-in {
-    will-change: transform, opacity;
-}
-
 .animate-page-in > *:not(style):not(script) {
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     opacity: 0;
@@ -195,6 +191,11 @@ html {
 .animate-page-in > *:nth-child(5) { animation-delay: 500ms; }
 .animate-page-in > *:nth-child(6) { animation-delay: 600ms; }
 .animate-page-in > *:nth-child(7) { animation-delay: 700ms; }
+.animate-page-in > *:nth-child(8) { animation-delay: 800ms; }
+.animate-page-in > *:nth-child(9) { animation-delay: 900ms; }
+.animate-page-in > *:nth-child(10) { animation-delay: 1000ms; }
+.animate-page-in > *:nth-child(11) { animation-delay: 1100ms; }
+.animate-page-in > *:nth-child(12) { animation-delay: 1200ms; }
 
 .animate-stagger-in {
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
