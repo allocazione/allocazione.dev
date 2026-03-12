@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 import { init, waitLocale } from 'svelte-i18n';
-import '$lib/i18n.js';
+import '$lib/locales/i18n.js';
 
 export const prerender = true;
 export const trailingSlash = 'always';

@@ -1,8 +1,8 @@
 <script>
   import ProjectCard from "$lib/components/widgets/ProjectCard.svelte";
   import { siteConfig } from "$lib/config.js";
-  import { tooltip } from "$lib/tooltip.js";
-  import { fadeIn } from "$lib/actions.js";
+  import { tooltip } from "$lib/actions/tooltip.js";
+  import { fadeIn } from "$lib/actions/fadeIn.js";
   import { onMount } from "svelte";
   import { invalidateAll } from "$app/navigation";
   import { t } from "svelte-i18n";

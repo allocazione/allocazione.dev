@@ -4,7 +4,7 @@
   import "../app.css";
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
-  import "$lib/i18n.js";
+  import "$lib/locales/i18n.js";
   import { isLoading, waitLocale } from "svelte-i18n";
 
   let { children } = $props();

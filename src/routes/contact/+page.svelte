@@ -1,8 +1,8 @@
 <script>
   import Button from "$lib/components/ui/Button.svelte";
   import { siteConfig } from "$lib/config.js";
-  import { fadeIn } from "$lib/actions.js";
-  import { tooltip } from "$lib/tooltip.js";
+  import { fadeIn } from "$lib/actions/fadeIn.js";
+  import { tooltip } from "$lib/actions/tooltip.js";
   import { t } from "svelte-i18n";
   const { email, name } = siteConfig;
   const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];

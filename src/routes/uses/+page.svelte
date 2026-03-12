@@ -1,5 +1,5 @@
 <script>
-  import { fadeIn } from "$lib/actions.js";
+  import { fadeIn } from "$lib/actions/fadeIn.js";
   import { siteConfig } from "$lib/config.js";
   import { t } from "svelte-i18n";
 

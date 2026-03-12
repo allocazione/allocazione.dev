@@ -2,8 +2,8 @@
   import Button from "$lib/components/ui/Button.svelte";
   import Clock from "$lib/components/widgets/Clock.svelte";
   import StatsFM from "$lib/components/widgets/StatsFM.svelte";
-  import { tooltip } from "$lib/tooltip.js";
-  import { fadeIn } from "$lib/actions.js";
+  import { tooltip } from "$lib/actions/tooltip.js";
+  import { fadeIn } from "$lib/actions/fadeIn.js";
   import { t } from "svelte-i18n";
 
   import { siteConfig } from "$lib/config.js";
