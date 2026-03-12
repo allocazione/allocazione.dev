@@ -41,7 +41,7 @@
 
 
   <div
-    class="font-['Space_Mono'] text-accent flex items-end gap-1 mb-2 tracking-wider"
+    class="font-space-mono text-accent flex items-end gap-1 mb-2 tracking-wider"
   >
     <Ticker value={time} />
   </div>

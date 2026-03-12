@@ -5,6 +5,13 @@
     --color-text-soft: #d1d5db;
     --color-text-muted: #9ca3af;
     --color-accent: var(--accent, #e16666);
+
+    --font-inter: "Inter", sans-serif;
+    --font-space-mono: "Space Mono", monospace;
+}
+
+:root {
+    color-scheme: dark;
 }
 
 .overlay {

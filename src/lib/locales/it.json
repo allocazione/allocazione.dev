@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "home",
+    "projects": "progetti",
+    "uses": "/uses",
+    "contact": "contatti"
+  },
+  "home": {
+    "title": "@seleneftw / home",
+    "greeting": "ciao, sono {name}.",
+    "short_for": "abbreviativo di Selene",
+    "who_am_i": "chi sono?",
+    "about_p1": "mi occupo di ricerca e sviluppo con focus su <span class=\"text-gray-200\">sistemi low-level</span> e <span class=\"text-gray-200\">sicurezza</span>. mi piacciono le sfide tecniche nell'ottimizzare <span class=\"text-gray-200\">architetture ad alta concorrenza</span> e sviluppare <span class=\"text-gray-200\">metodologie forensi</span> che scalano davvero. passo la maggior parte del mio tempo lavorando con <span class=\"text-gray-200\">C, Rust, Go e Python</span> per costruire sistemi che siano sia performanti che memory-safe.",
+    "about_p2": "credo nell' <span class=\"text-gray-200\">integrità tecnica</span>, nella <span class=\"text-gray-200\">security by design</span> e mi concentro su una rigorosa <span class=\"text-gray-200\">ricerca di vulnerabilità</span> per costruire strumenti che non risolvano solo problemi, ma che siano anche progettati per velocità ed efficienza.",
+    "footer": "// i'll lose the beat to be complete and fall<br> // i'll be human after all"
+  },
+  "projects": {
+    "title": "@seleneftw / progetti",
+    "header": "l'archivio.",
+    "description": "una collezione di progetti, esperimenti e contributi open source presi direttamente dal mio github.",
+    "language_breakdown": "analisi linguaggi",
+    "analyzed_repos": "analizzati {count} repository",
+    "github_error": "// signal lost. unable to fetch from github.",
+    "own_website": "this very own website source code!"
+  },
+  "contact": {
+    "title": "@seleneftw / contatti",
+    "header": "contatti.",
+    "subheader": "disponibilità per collaborazioni di ricerca strategica, impegni di sviluppo software e consulenza tecnica sulla sicurezza.",
+    "reach_out": "puoi scrivermi via email o dm per collaborazioni, domande o anche solo per un saluto!",
+    "availability": "disponibilità",
+    "availability_desc": "per progetti interessanti, ricerca o collaborazioni stimolanti",
+    "protocol": "protocollo",
+    "protocol_desc": "i dm sono sempre aperti per una chiacchierata veloce!",
+    "email_me": "scrivimi",
+    "direct_inquiry": "richiesta diretta",
+    "presence": "presenza",
+    "waiting_signal": "// waiting for signal"
+  },
+  "uses": {
+    "title": "@seleneftw / uses",
+    "header": "/uses.",
+    "last_updated": "ultimo aggiornamento: {date}",
+    "description": "una collezione di strumenti, hardware e software in uso quotidianamente per costruire sistemi e passare il tempo libero.",
+    "pending": "// connessione in corso...",
+    "categories": [
+      {
+        "title": "setup",
+        "items": [
+          { "name": "OS", "description": "Fedora Linux, Ubuntu Server, Windows 10", "url": "#" },
+          { "name": "WM/DE", "description": "GNOME, Niri + MangoWM", "url": "#" },
+          { "name": "Terminal", "description": "Alacritty", "url": "https://alacritty.org" },
+          { "name": "Shell", "description": "fish", "url": "https://fishshell.com" }
+        ]
+      },
+      {
+        "title": "editor",
+        "items": [
+          { "name": "Editor", "description": "Zed", "url": "https://zed.dev" },
+          { "name": "Theme", "description": "Nord", "url": "https://www.nordtheme.com/" },
+          { "name": "Font", "description": "Adwaita", "url": "https://github.com/GNOME/adwaita-fonts" }
+        ]
+      },
+      {
+        "title": "hardware",
+        "items": [
+          { "name": "CPU", "description": "Intel Core i7-10700k", "url": "https://www.intel.com/content/www/us/en/products/sku/199335/intel-core-i710700k-processor-16m-cache-up-to-5-10-ghz/specifications.html" },
+          { "name": "GPU", "description": "NVIDIA GeForce RTX 3070", "url": "https://www.nvidia.com/en-us/geforce/news/geforce-rtx-3070-out-now/" },
+          { "name": "Monitor 1", "description": "BenQ Zowie XL2411P", "url": "#" },
+          { "name": "Monitor 2", "description": "LG UltraGear 24GN600-B", "url": "#" },
+          { "name": "Scrivania", "description": "Fatta su misura", "url": "#" },
+          { "name": "Sedia", "description": "SecretLab Titan Evo 2022", "url": "https://secretlab.co/products/titan-evo-2022-series" }
+        ]
+      },
+      {
+        "title": "tastiera + mouse",
+        "items": [
+          { "name": "Tastiera", "description": "Wooting 80HE", "url": "https://wooting.io/80he" },
+          { "name": "Switch", "description": "Switches Wooting Lekker V2", "url": "https://wooting.io/lekker-switches" },
+          { "name": "Mouse", "description": "Razer Viper V3 Pro", "url": "https://www.razer.com/gaming-mice/razer-viper-v3-pro" }
+        ]
+      },
+      {
+        "title": "audio",
+        "items": [
+          { "name": "Cuffie", "description": "Byerdynamic DT 990 PRO", "url": "https://north-america.beyerdynamic.com/p/dt-990-pro" },
+          { "name": "Microfono", "description": "HyperX Quadcast S", "url": "https://row.hyperx.com/products/hyperx-quadcast-s-usb-microphone" }
+        ]
+      },
+      {
+        "title": "software",
+        "items": [
+          { "name": "Browser", "description": "Floorp / Thorium", "url": "#" },
+          { "name": "Musica", "description": "Spotify", "url": "https://open.spotify.com/" },
+          { "name": "Note", "description": " Obsidian", "url": "https://obsidian.md/" },
+          { "name": "Gestore Password", "description": "2FAS Pass", "url": "https://2fas.com/" }
+        ]
+      }
+    ]
+  }
+}

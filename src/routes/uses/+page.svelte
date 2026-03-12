@@ -1,13 +1,21 @@
 <script>
   import { fadeIn } from "$lib/actions.js";
   import { siteConfig } from "$lib/config.js";
+  import { t } from "svelte-i18n";
 
-  const { uses: categories, lastUpdated } = siteConfig;
+  const { lastUpdated } = siteConfig;
+  
+  // svelte-i18n's $t can return objects/arrays if they are in the JSON
+  const categories = $derived($t('uses.categories', { defaultValue: [] }));
+  const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
 </script>
 
 <svelte:head>
-  <title>@seleneftw / uses</title>
-  <meta property="og:title" content="@seleneftw / uses" />
+  <title>{$t('uses.title')}</title>
+  <meta property="og:title" content={$t('uses.title')} />
+  <meta name="description" content={randomDescription} />
+  <meta property="og:description" content={randomDescription} />
+  <meta name="twitter:description" content={randomDescription} />
 </svelte:head>
 
 <div class="w-full pt-12 pb-24">
@@ -19,7 +27,7 @@
       <h1
         class="font-['Space_Mono'] text-accent text-2xl lowercase tracking-widest"
       >
-        /uses.
+        {$t('uses.header')}
       </h1>
       {#if lastUpdated}
         <div class="flex items-center gap-2 opacity-50">
@@ -39,7 +47,7 @@
           >
           <span
             class="text-[10px] text-gray-500 font-['Space_Mono'] tracking-widest lowercase"
-            >last updated: {lastUpdated}</span
+            >{$t('uses.last_updated', { values: { date: lastUpdated } })}</span
           >
         </div>
       {/if}
@@ -47,8 +55,7 @@
     <p
       class="text-gray-400 font-light text-sm max-w-xl leading-loose lowercase"
     >
-      a collection of the tools, hardware, and software i use on a daily basis
-      to build things and spend my free time with.
+      {$t('uses.description')}
     </p>
   </div>
 
@@ -119,7 +126,7 @@
     >
       <span
         class="text-gray-600 text-xs font-['Space_Mono'] tracking-widest lowercase animate-pulse"
-        >// connection pending...</span
+        >{$t('uses.pending')}</span
       >
     </div>
   </div>

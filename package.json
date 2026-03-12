@@ -21,7 +21,8 @@
 	},
 	"dependencies": {
 		"animejs": "^4.3.6",
-		"simple-icons": "^16.11.0"
+		"simple-icons": "^16.11.0",
+		"svelte-i18n": "^4.0.1"
 	},
 	"overrides": {
 		"cookie": "^0.7.0"

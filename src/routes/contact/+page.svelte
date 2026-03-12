@@ -3,12 +3,17 @@
   import { siteConfig } from "$lib/config.js";
   import { fadeIn } from "$lib/actions.js";
   import { tooltip } from "$lib/tooltip.js";
+  import { t } from "svelte-i18n";
   const { email, name } = siteConfig;
+  const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
 </script>
 
 <svelte:head>
-  <title>@seleneftw / contact</title>
-  <meta property="og:title" content="@seleneftw / contact" />
+  <title>{$t('contact.title')}</title>
+  <meta property="og:title" content={$t('contact.title')} />
+  <meta name="description" content={randomDescription} />
+  <meta property="og:description" content={randomDescription} />
+  <meta name="twitter:description" content={randomDescription} />
 </svelte:head>
 
 <div class="w-full pt-4 pb-8">
@@ -19,13 +24,12 @@
     <h1
       class="font-['Space_Mono'] text-accent text-2xl lowercase tracking-widest mb-4"
     >
-      contact.
+      {$t('contact.header')}
     </h1>
     <p
       class="text-gray-400 font-light text-sm max-w-xl leading-loose lowercase"
     >
-      available for strategic research collaborations, software development
-      engagements, and technical security consulting.
+      {$t('contact.subheader')}
     </p>
   </div>
 
@@ -45,8 +49,7 @@
           <p
             class="text-xl text-gray-300 font-light leading-relaxed mb-12 max-w-lg"
           >
-            feel free to reach out by email or dm for collaborations, questions
-            or just to say hi!
+            {$t('contact.reach_out')}
           </p>
 
           <div
@@ -56,24 +59,24 @@
               <h3
                 class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-[0.2em] mb-3"
               >
-                availability
+                {$t('contact.availability')}
               </h3>
               <p
                 class="text-sm text-gray-400 font-light lowercase leading-relaxed italic"
               >
-                down for cool projects, research, or interesting collaborations
+                {$t('contact.availability_desc')}
               </p>
             </div>
             <div>
               <h3
                 class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-[0.2em] mb-3"
               >
-                protocol
+                {$t('contact.protocol')}
               </h3>
               <p
                 class="text-sm text-gray-400 font-light lowercase leading-relaxed italic"
               >
-                dms are always open for a quick chat!
+                {$t('contact.protocol_desc')}
               </p>
             </div>
           </div>
@@ -83,12 +86,12 @@
           class="flex flex-col sm:flex-row items-start sm:items-center gap-8 mt-4"
         >
           <Button href={`mailto:${email}`}>
-            email me <span class="ml-2 text-accent">&lt;/&gt;</span>
+            {$t('contact.email_me')} <span class="ml-2 text-accent">&lt;/&gt;</span>
           </Button>
           <div class="flex flex-col gap-1">
             <span
               class="text-[10px] text-gray-600 font-['Space_Mono'] uppercase tracking-widest"
-              >direct inquiry</span
+              >{$t('contact.direct_inquiry')}</span
             >
             <span class="text-sm text-gray-400 lowercase">{email}</span>
           </div>
@@ -104,7 +107,7 @@
       <h2
         class="text-gray-500 text-[10px] tracking-[0.3em] font-['Space_Mono'] lowercase mb-12"
       >
-        presence
+        {$t('contact.presence')}
       </h2>
 
       <div class="space-y-4">
@@ -142,7 +145,7 @@
         <span
           class="text-[10px] text-gray-600 font-['Space_Mono'] lowercase tracking-[0.2em] animate-pulse"
         >
-          // waiting for signal
+          {$t('contact.waiting_signal')}
         </span>
       </div>
     </div>

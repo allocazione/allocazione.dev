@@ -4,8 +4,16 @@
   import "../app.css";
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
+  import "$lib/i18n.js";
+  import { isLoading, waitLocale } from "svelte-i18n";
 
   let { children } = $props();
+  let localeLoaded = $state(false);
+
+  onMount(async () => {
+    await waitLocale();
+    localeLoaded = true;
+  });
 
   // Pick a random description at build time (and client side during hydration)
   const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
@@ -78,7 +86,7 @@
 <div class="overlay" aria-hidden="true"></div>
 
 <div
-  class="min-h-screen flex flex-col items-center justify-between font-['Inter'] relative w-full"
+  class="min-h-screen flex flex-col items-center justify-between font-inter relative w-full"
 >
   <div
     class="fixed top-0 inset-x-0 h-125 bg-linear-to-b from-white/2 to-transparent pointer-events-none z-0"
@@ -87,11 +95,17 @@
   <div
     class="relative z-60 w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col min-h-screen"
   >
-    <Nav />
+    {#if !$isLoading && localeLoaded}
+      <Nav />
 
-    <main id="main-content" class="grow flex flex-col justify-center py-20 relative w-full">
-      {@render children()}
-    </main>
+      <main id="main-content" class="grow flex flex-col justify-center py-20 relative w-full">
+        {@render children()}
+      </main>
+    {:else}
+      <div class="grow flex flex-col items-center justify-center">
+        <div class="w-8 h-8 border-2 border-accent/20 border-t-accent rounded-full animate-spin"></div>
+      </div>
+    {/if}
   </div>
 </div>
 

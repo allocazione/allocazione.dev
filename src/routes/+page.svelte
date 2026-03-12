@@ -4,15 +4,23 @@
   import StatsFM from "$lib/components/widgets/StatsFM.svelte";
   import { tooltip } from "$lib/tooltip.js";
   import { fadeIn } from "$lib/actions.js";
+  import { t } from "svelte-i18n";
 
   import { siteConfig } from "$lib/config.js";
 
   const { name, profession, skills, email, avatar } = siteConfig;
+  const randomDescription =
+    siteConfig.descriptions[
+      Math.floor(Math.random() * siteConfig.descriptions.length)
+    ];
 </script>
 
 <svelte:head>
-  <title>@seleneftw / home</title>
-  <meta property="og:title" content="@seleneftw / home" />
+  <title>{$t("home.title")}</title>
+  <meta property="og:title" content={$t("home.title")} />
+  <meta name="description" content={randomDescription} />
+  <meta property="og:description" content={randomDescription} />
+  <meta name="twitter:description" content={randomDescription} />
 </svelte:head>
 
 <div
@@ -34,22 +42,31 @@
         class="w-32 h-32 mb-8 rounded-2xl object-cover border border-[#252525] shadow-lg group-hover:border-accent/30 transition-colors duration-500"
       />
       <h1
-        class="text-2xl mt-2 text-accent mb-2 lowercase"
+        class="text-2xl mt-2 text-accent mb-0.5 lowercase"
         style="letter-spacing: normal; text-shadow: none;"
       >
-        hi, i'm <span class="font-semibold">{name}</span>.
+        {@html $t("home.greeting", {
+          values: { name: `<span class="font-semibold">${name}</span>` },
+        })}
       </h1>
+      <p class="text-[13px] text-gray-500/70 mb-4 lowercase font-light italic">
+        {$t("home.short_for")}
+      </p>
       <p
         class="text-[15px] text-gray-500 mb-12 lowercase tracking-[0.2em] font-light"
       >
         {profession.toLowerCase()}
       </p>
 
-      <div class="font-['Space_Mono'] text-xs tracking-widest mt-8 space-y-1.5 opacity-90">
+      <div
+        class="font-space-mono text-xs tracking-widest mt-8 space-y-1.5 opacity-90"
+      >
         <div class="flex items-center gap-2">
           <span class="text-gray-600">~</span>
           <span class="text-accent">selene</span>
-          <span class="text-gray-500">&gt;_</span><span class="text-[#c084fc]">portfolio</span>
+          <span class="text-gray-500">&gt;_</span><span class="text-[#c084fc]"
+            >portfolio</span
+          >
         </div>
         <div class="flex items-center gap-2">
           <span class="text-gray-600">~</span>
@@ -137,7 +154,7 @@
 
     <div class="relative z-10 flex justify-between items-center">
       <span class="text-xs text-gray-600 font-light lowercase tracking-wider">
-        // i'll lose the beat to be complete and fall<br> // i'll be human after all
+        {@html $t("home.footer")}
       </span>
       <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
     </div>
@@ -156,7 +173,7 @@
     <div class="relative z-10 w-full flex flex-col items-end text-right">
       <div class="flex items-center gap-4 mb-6 justify-end">
         <h2 class="text-accent text-xs tracking-[0.2em] font-light lowercase">
-          who am i?
+          {$t("home.who_am_i")}
         </h2>
       </div>
 
@@ -164,25 +181,10 @@
         class="text-gray-400 text-sm leading-loose font-light space-y-4 max-w-xl"
       >
         <p>
-          i'm a researcher and developer focused on <span class="text-gray-200"
-            >low-level systems</span
-          >
-          and <span class="text-gray-200">security</span>. i enjoy the technical
-          challenge of optimizing
-          <span class="text-gray-200">high-concurrency architectures</span>
-          and developing
-          <span class="text-gray-200">forensic methodologies</span>
-          that actually scale. i spend most of my time working with
-          <span class="text-gray-200">C, Rust, Go, and Python</span> to build things
-          that are both performant and memory-safe.
+          {@html $t("home.about_p1")}
         </p>
         <p class="pt-2">
-          i believe in <span class="text-gray-200">technical integrity</span>,
-          <span class="text-gray-200">security by design</span>
-          and i focus on rigorous
-          <span class="text-gray-200">vulnerability research</span> to build tools
-          that don't just solve problems, but also ensuring they're actually built
-          for speed and efficiency.
+          {@html $t("home.about_p2")}
         </p>
       </div>
     </div>

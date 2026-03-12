@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "inicio",
+    "projects": "proyectos",
+    "uses": "/uses",
+    "contact": "contacto"
+  },
+  "home": {
+    "title": "@seleneftw / inicio",
+    "greeting": "hola, soy {name}.",
+    "short_for": "abreviatura de Selene",
+    "who_am_i": "¿quién soy?",
+    "about_p1": "mi enfoque es la investigación e el desarrollo de <span class=\"text-gray-200\">sistemas de bajo nivel</span> y <span class=\"text-gray-200\">seguridad</span>. disfruto del desafío técnico de optimizar <span class=\"text-gray-200\">arquitecturas de alta concurrencia</span> y desarrollar <span class=\"text-gray-200\">metodologías forénsicas</span> que realmente escalen. paso la mayor parte de mi tiempo trabajando con <span class=\"text-gray-200\">C, Rust, Go y Python</span> para construir sistemas que sean tanto eficientes como seguros en memoria.",
+    "about_p2": "creo en la <span class=\"text-gray-200\">integridad técnica</span>, la <span class=\"text-gray-200\">seguridad por diseño</span> y me enfoco en la <span class=\"text-gray-200\">investigación rigurosa de vulnerabilidades</span> para construir herramientas que no solo resuelvan problemas, sino que también aseguren que estén construidas para la velocidad y la eficiencia.",
+    "footer": "// i'll lose the beat to be complete and fall<br> // i'll be human after all"
+  },
+  "projects": {
+    "title": "@seleneftw / proyectos",
+    "header": "el archivo.",
+    "description": "una colección de proyectos, experimentos y contribuciones de código abierto extraídas directamente de mi github.",
+    "language_breakdown": "desglose de lenguajes",
+    "analyzed_repos": "{count} repos analizados",
+    "github_error": "// signal lost. unable to fetch from github.",
+    "own_website": "this very own website source code!"
+  },
+  "contact": {
+    "title": "@seleneftw / contacto",
+    "header": "contacto.",
+    "subheader": "disponible para colaboraciones de investigación estratégica, compromisos de desarrollo de software y consultoría de seguridad técnica.",
+    "reach_out": "escríbeme por correo electrónico o mensaje directo para colaboraciones, preguntas o simplemente para decir hola.",
+    "availability": "disponibilidad",
+    "availability_desc": "para proyectos geniales, investigación o colaboraciones interesantes",
+    "protocol": "protocolo",
+    "protocol_desc": "los mensajes directos están siempre abiertos para una charla rápida.",
+    "email_me": "envíame un correo",
+    "direct_inquiry": "consulta directa",
+    "presence": "presencia",
+    "waiting_signal": "// waiting for signal"
+  },
+  "uses": {
+    "title": "@seleneftw / uses",
+    "header": "/uses.",
+    "last_updated": "última actualización: {date}",
+    "description": "una colección de herramientas, hardware y software en uso a diario para construir sistemas y pasar el tempo libre.",
+    "pending": "// conexión pendiente...",
+    "categories": [
+      {
+        "title": "setup",
+        "items": [
+          { "name": "OS", "description": "Fedora Linux, Ubuntu Server, Windows 10", "url": "#" },
+          { "name": "WM/DE", "description": "GNOME, Niri + MangoWM", "url": "#" },
+          { "name": "Terminal", "description": "Alacritty", "url": "https://alacritty.org" },
+          { "name": "Shell", "description": "fish", "url": "https://fishshell.com" }
+        ]
+      },
+      {
+        "title": "editor",
+        "items": [
+          { "name": "Editor", "description": "Zed", "url": "https://zed.dev" },
+          { "name": "Tema", "description": "Nord", "url": "https://www.nordtheme.com/" },
+          { "name": "Fuente", "description": "Adwaita", "url": "https://github.com/GNOME/adwaita-fonts" }
+        ]
+      },
+      {
+        "title": "hardware",
+        "items": [
+          { "name": "CPU", "description": "Intel Core i7-10700k", "url": "https://www.intel.com/content/www/us/en/products/sku/199335/intel-core-i710700k-processor-16m-cache-up-to-5-10-ghz/specifications.html" },
+          { "name": "GPU", "description": "NVIDIA GeForce RTX 3070", "url": "https://www.nvidia.com/en-us/geforce/news/geforce-rtx-3070-out-now/" },
+          { "name": "Monitor 1", "description": "BenQ Zowie XL2411P", "url": "#" },
+          { "name": "Monitor 2", "description": "LG UltraGear 24GN600-B", "url": "#" },
+          { "name": "Escritorio", "description": "Hecho a medida", "url": "#" },
+          { "name": "Silla", "description": "SecretLab Titan Evo 2022", "url": "https://secretlab.co/products/titan-evo-2022-series" }
+        ]
+      },
+      {
+        "title": "teclado + ratón",
+        "items": [
+          { "name": "Teclado", "description": "Wooting 80HE", "url": "https://wooting.io/80he" },
+          { "name": "Interruptores", "description": "Wooting Lekker V2 Switches", "url": "https://wooting.io/lekker-switches" },
+          { "name": "Ratón", "description": "Razer Viper V3 Pro", "url": "https://www.razer.com/gaming-mice/razer-viper-v3-pro" }
+        ]
+      },
+      {
+        "title": "audio",
+        "items": [
+          { "name": "Auriculares", "description": "Byerdynamic DT 990 PRO", "url": "https://north-america.beyerdynamic.com/p/dt-990-pro" },
+          { "name": "Micrófono", "description": "HyperX Quadcast S", "url": "https://row.hyperx.com/products/hyperx-quadcast-s-usb-microphone" }
+        ]
+      },
+      {
+        "title": "software",
+        "items": [
+          { "name": "Navegador", "description": "Floorp / Thorium", "url": "#" },
+          { "name": "Música", "description": "Spotify", "url": "https://open.spotify.com/" },
+          { "name": "Notas", "description": " Obsidian", "url": "https://obsidian.md/" },
+          { "name": "Gestor de Contraseñas", "description": "2FAS Pass", "url": "https://2fas.com/" }
+        ]
+      }
+    ]
+  }
+}

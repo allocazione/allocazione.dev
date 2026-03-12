@@ -242,7 +242,7 @@
         />
         <ScrollingText
           text={data.track.artists.map((a) => a.name).join(", ")}
-          className="mt-0.5 text-[10px] text-gray-400 font-['Space_Mono'] lowercase w-full"
+          className="mt-0.5 text-[10px] text-gray-400 font-space-mono lowercase w-full"
         >
           {#each data.track.artists as artist, i}
             {#if spotifyUrls.artists[artist.id]}
