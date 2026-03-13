@@ -202,12 +202,12 @@
             href={link.href}
             onclick={(e) => updateHighlight(e.currentTarget)}
             onmouseenter={(e) => updateHighlight(e.currentTarget)}
-            class="block px-3 sm:px-5 py-2 text-[11px] sm:text-sm transition-colors duration-300 lowercase tracking-wide rounded-full focus-ring touch-manipulation
+            class="block px-3 sm:px-5 py-2 text-[11px] sm:text-sm font-medium transition-colors duration-300 lowercase tracking-wide rounded-full focus-ring touch-manipulation
                                 {activePath === link.href ||
             (activePath === link.href + '/' && link.href !== '/') ||
             (link.href === activePath + '/' && activePath !== '/') ||
             (activePath.startsWith(link.href) && link.href !== '/')
-              ? 'text-white font-medium'
+              ? 'text-white'
               : 'text-gray-400'}"
             aria-label={`Go to ${link.label} page`}
           >
