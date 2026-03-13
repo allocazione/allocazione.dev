@@ -6,7 +6,7 @@
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
   import "$lib/locales/i18n.js";
-  import { isLoading, waitLocale } from "svelte-i18n";
+  import { isLoading, waitLocale, locale } from "svelte-i18n";
   import { page } from "$app/state";
 
   let { children } = $props();
@@ -144,7 +144,9 @@
         ? 'opacity-100'
         : 'opacity-0 invisible pointer-events-none'}"
     >
-      {@render children()}
+      {#key $locale}
+        {@render children()}
+      {/key}
     </main>
 
     {#if !localeLoaded}
