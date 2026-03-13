@@ -33,6 +33,22 @@
     window.scrollTo({ top: 0, behavior: "instant" });
   });
 
+  onNavigate((navigation) => {
+    // Only enable View Transitions on desktop to avoid double refresh on mobile
+    if (!document.startViewTransition) return;
+
+    // Check if device is mobile (viewport width < 768px)
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
+
   onMount(() => {
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
