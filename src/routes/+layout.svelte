@@ -33,6 +33,20 @@
     window.scrollTo({ top: 0, behavior: "instant" });
   });
 
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
+
   onMount(() => {
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
