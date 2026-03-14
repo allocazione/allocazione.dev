@@ -5,20 +5,20 @@ let cache = {
     timestamp: 0
 };
 
-const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
+const CACHE_DURATION = 1 * 24 * 60 * 60 * 1000; // 1 day
 
 export const load = async ({ fetch, setHeaders }) => {
     try {
         const now = Date.now();
         if (cache.data && (now - cache.timestamp) < CACHE_DURATION) {
             setHeaders({
-                'Cache-Control': 'public, max-age=60'
+                'Cache-Control': 'public, max-age=86400'
             });
             return cache.data;
         }
 
         setHeaders({
-            'Cache-Control': 'public, max-age=60'
+            'Cache-Control': 'public, max-age=86400'
         });
 
         const res = await fetch(`https://api.github.com/users/${siteConfig.github}/repos?sort=updated&per_page=30`);
