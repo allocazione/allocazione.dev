@@ -1,9 +1,13 @@
-import { register, init, getLocaleFromNavigator, locale } from 'svelte-i18n';
+import { addMessages, init, getLocaleFromNavigator, locale } from 'svelte-i18n';
+import enMessages from './data/en.json';
+import itMessages from './data/it.json';
+import deMessages from './data/de.json';
+import esMessages from './data/es.json';
 
-register('en', () => import('./data/en.json'));
-register('it', () => import('./data/it.json'));
-register('de', () => import('./data/de.json'));
-register('es', () => import('./data/es.json'));
+addMessages('en', enMessages);
+addMessages('it', itMessages);
+addMessages('de', deMessages);
+addMessages('es', esMessages);
 
 const getCookie = (name) => {
   if (typeof document === 'undefined') return null;
@@ -26,7 +30,6 @@ const desiredClientLocale =
     ? normalizeLocale(getCookie('locale') || getLocaleFromNavigator())
     : 'en';
 
-// Keep SSR and first hydration render aligned for prerendered pages.
 const initialLocale = 'en';
 
 init({

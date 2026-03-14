@@ -1,12 +1,11 @@
 <script>
   import "$lib/locales/i18n.js";
   import { siteConfig } from "$lib/config.js";
-  import { t } from "svelte-i18n";
+  import { t, json } from "svelte-i18n";
 
   const { lastUpdated } = siteConfig;
   
-  // svelte-i18n's $t can return objects/arrays if they are in the JSON
-  const categories = $derived($t('uses.categories', { defaultValue: [] }));
+  const categories = $derived($json("uses.categories") || []);
   const randomDescription = siteConfig.descriptions[Math.floor(Math.random() * siteConfig.descriptions.length)];
 </script>
 
