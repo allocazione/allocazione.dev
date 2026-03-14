@@ -3,9 +3,9 @@
   import { fade } from "svelte/transition";
   import { onNavigate, afterNavigate } from "$app/navigation";
   import "../app.css";
+  import "$lib/locales/i18n.js";
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
-  import "$lib/locales/i18n.js";
   import { isLoading, waitLocale, locale } from "svelte-i18n";
 
   let { children } = $props();

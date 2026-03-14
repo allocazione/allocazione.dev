@@ -1,4 +1,5 @@
 <script>
+  import "$lib/locales/i18n.js";
   import { page } from "$app/state";
   import { tick, onMount } from "svelte";
   import { browser } from "$app/environment";
