@@ -3,6 +3,7 @@
   import Clock from "$lib/components/widgets/Clock.svelte";
   import StatsFM from "$lib/components/widgets/StatsFM.svelte";
   import { t } from "svelte-i18n";
+  import { onMount } from "svelte";
 
   import { siteConfig } from "$lib/config.js";
 
@@ -11,6 +12,19 @@
     siteConfig.descriptions[
       Math.floor(Math.random() * siteConfig.descriptions.length)
     ];
+
+  let isMounted = $state(false);
+  onMount(() => {
+    isMounted = true;
+  });
+
+  let greeting = $derived($t("home.greeting", {
+    values: {
+      name: `<span class="font-bold text-accent" style="text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.7), 0 0 40px rgba(var(--accent-rgb), 0.3);">${name}</span>`,
+    },
+  }));
+  let about_p1 = $derived($t("home.about_p1"));
+  let about_p2 = $derived($t("home.about_p2"));
 </script>
 
 <svelte:head>
@@ -42,11 +56,11 @@
         class="text-3xl mt-2 text-white/30 mb-0.5 lowercase leading-tight"
         style="letter-spacing: -0.02em;"
       >
-        {@html $t("home.greeting", {
-          values: {
-            name: `<span class="font-bold text-accent" style="text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.7), 0 0 40px rgba(var(--accent-rgb), 0.3);">${name}</span>`,
-          },
-        })}
+        {#if isMounted}
+          {@html greeting}
+        {:else}
+          <span style="visibility: hidden;">&nbsp;</span>
+        {/if}
       </h1>
       <p class="text-[13px] text-gray-500/70 mb-4 lowercase font-light italic">
         {$t("home.short_for")}
@@ -78,12 +92,13 @@
       <div
         class="text-gray-400 text-sm leading-loose font-light space-y-4 max-w-xl"
       >
-        <p>
-          {@html $t("home.about_p1")}
-        </p>
-        <p class="pt-2">
-          {@html $t("home.about_p2")}
-        </p>
+        {#if isMounted}
+          <p>{@html about_p1}</p>
+          <p class="pt-2">{@html about_p2}</p>
+        {:else}
+          <p style="visibility: hidden;">&nbsp;</p>
+          <p class="pt-2" style="visibility: hidden;">&nbsp;</p>
+        {/if}
       </div>
     </div>
   </div>

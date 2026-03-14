@@ -5,6 +5,9 @@
   import ScrollingText from "../ui/ScrollingText.svelte";
   import { themeState } from "$lib/state.svelte.js";
 
+  const CACHE_KEY = "statsfm_widget_cache_v1";
+  const CACHE_TTL_MS = 120000;
+
   let data = $state(null);
   let loading = $state(true);
   let error = $state(false);
@@ -14,6 +17,43 @@
     album: "",
     artists: {},
   });
+
+  const readCache = () => {
+    if (!browser) return null;
+
+    try {
+      const raw = sessionStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+
+      const parsed = JSON.parse(raw);
+      const isValid =
+        parsed?.cachedAt &&
+        Date.now() - parsed.cachedAt < CACHE_TTL_MS &&
+        parsed?.data?.track;
+
+      return isValid ? parsed : null;
+    } catch (err) {
+      console.error("Error reading Stats.fm cache:", err);
+      return null;
+    }
+  };
+
+  const writeCache = () => {
+    if (!browser || !data?.track) return;
+
+    try {
+      sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          cachedAt: Date.now(),
+          data,
+          spotifyUrls,
+        }),
+      );
+    } catch (err) {
+      console.error("Error writing Stats.fm cache:", err);
+    }
+  };
 
   const fetchSpotifyUrls = async (track) => {
     if (!track) return;
@@ -70,6 +110,8 @@
         album: nextAlbum,
         artists: nextArtists,
       };
+
+      writeCache();
     }
   };
 
@@ -164,6 +206,7 @@
         if (data.track) {
           fetchSpotifyUrls(data.track);
           updateAccentColor(data.track.albums[0]?.image);
+          writeCache();
         }
       } else {
         const recentRes = await fetch(
@@ -180,6 +223,7 @@
             if (data.track) {
               fetchSpotifyUrls(data.track);
               updateAccentColor(data.track.albums[0]?.image);
+              writeCache();
             }
           } else {
             error = true;
@@ -190,7 +234,9 @@
       }
     } catch (err) {
       console.error("Error fetching Stats.fm data:", err);
-      error = true;
+      if (!data?.track) {
+        error = true;
+      }
     } finally {
       loading = false;
     }
@@ -201,6 +247,18 @@
       loading = false;
       error = true;
       return;
+    }
+
+    const cached = readCache();
+    if (cached) {
+      data = cached.data;
+      spotifyUrls = {
+        currentTrackId: cached.spotifyUrls?.currentTrackId ?? null,
+        album: cached.spotifyUrls?.album ?? "",
+        artists: cached.spotifyUrls?.artists ?? {},
+      };
+      loading = false;
+      error = false;
     }
 
     fetchStats();
