@@ -189,7 +189,7 @@
     aria-label="Main Navigation"
   >
     <div
-      class="absolute top-1.5 bottom-1.5 left-0 bg-white/10 rounded-full transition-all duration-300 ease-out z-0 border border-white/5"
+      class="absolute top-1.5 bottom-1.5 left-0 bg-white/10 rounded-full sm:transition-all sm:duration-300 sm:ease-out z-0 border border-white/5"
       style={highlightStyle}
     ></div>
 
@@ -258,7 +258,7 @@
             class="absolute top-full left-1/2 -translate-x-1/2 mt-3 p-1 sm:p-1.5 rounded-full bg-[#1a1a1a]/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 flex flex-col gap-1 items-center pointer-events-auto"
           >
             <div
-              class="absolute top-0 left-0 bg-white/10 rounded-full transition-all duration-300 ease-out z-0 border border-white/5"
+              class="absolute top-0 left-0 bg-white/10 rounded-full sm:transition-all sm:duration-300 sm:ease-out z-0 border border-white/5"
               style={dropdownHighlightStyle}
             ></div>
 
