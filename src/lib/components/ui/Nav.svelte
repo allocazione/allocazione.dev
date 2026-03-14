@@ -201,6 +201,7 @@
         <li>
           <a
             href={link.href}
+            data-sveltekit-preload-data={isMobile ? "off" : "tap"}
             onclick={(e) => updateHighlight(e.currentTarget)}
             onmouseenter={(e) => {
               if (isMobile) return;
