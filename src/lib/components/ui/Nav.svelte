@@ -201,7 +201,11 @@
           <a
             href={link.href}
             onclick={(e) => updateHighlight(e.currentTarget)}
-            onmouseenter={(e) => updateHighlight(e.currentTarget)}
+            onmouseenter={(e) => {
+              if (isMobile) return;
+              updateHighlight(e.currentTarget);
+            }}
+
             class="block px-3 sm:px-5 py-2 text-[11px] sm:text-sm transition-colors duration-300 lowercase tracking-wide rounded-full focus-ring touch-manipulation
                                 {activePath === link.href ||
             (activePath === link.href + '/' && link.href !== '/') ||
@@ -223,7 +227,11 @@
             e.stopPropagation();
             toggleLang();
           }}
-          onmouseenter={(e) => updateHighlight(e.currentTarget)}
+          onmouseenter={(e) => {
+            if (isMobile) return;
+            updateHighlight(e.currentTarget);
+          }}
+
           class="px-3 sm:px-5 py-2 text-gray-400 hover:text-white transition-all duration-300 rounded-full focus-ring flex items-center justify-center group pointer-events-auto"
           aria-label="Change language"
           aria-expanded={isLangOpen}
@@ -267,7 +275,11 @@
                 data-id={loc.id}
                 role="menuitem"
                 onclick={() => selectLang(loc.id)}
-                onmouseenter={(e) => updateDropdownHighlight(e.currentTarget)}
+                onmouseenter={(e) => {
+                  if (isMobile) return;
+                  updateDropdownHighlight(e.currentTarget);
+                }}
+                
                 class="relative z-10 w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-full transition-colors duration-300 group/item
                          {$locale === loc.id ? 'text-white' : 'text-gray-400 hover:text-white'}"
                 aria-label={loc.label}
