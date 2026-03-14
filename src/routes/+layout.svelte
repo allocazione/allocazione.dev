@@ -7,15 +7,8 @@
   import { siteConfig } from "$lib/config.js";
   import "$lib/locales/i18n.js";
   import { isLoading, waitLocale, locale } from "svelte-i18n";
-  import { page } from "$app/state";
 
   let { children } = $props();
-
-  const pageName = $derived(
-    page.route?.id === "/"
-      ? "home"
-      : page.route?.id?.replace(/^\//, "") || "error",
-  );
   let localeLoaded = $state(false);
 
   onMount(async () => {
@@ -82,7 +75,6 @@
 </script>
 
 <svelte:head>
-  <meta property="og:site_name" content={`allocazione.dev / ${pageName}`} />
   <meta name="description" content={randomDescription} />
   <meta property="og:description" content={randomDescription} />
   <meta name="twitter:description" content={randomDescription} />
