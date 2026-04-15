@@ -1,9 +1,13 @@
-import { register, init, getLocaleFromNavigator, waitLocale, locale } from 'svelte-i18n';
+import { addMessages, init, getLocaleFromNavigator, locale } from 'svelte-i18n';
+import enMessages from './data/en.json';
+import itMessages from './data/it.json';
+import deMessages from './data/de.json';
+import esMessages from './data/es.json';
 
-register('en', () => import('./data/en.json'));
-register('it', () => import('./data/it.json'));
-register('de', () => import('./data/de.json'));
-register('es', () => import('./data/es.json'));
+addMessages('en', enMessages);
+addMessages('it', itMessages);
+addMessages('de', deMessages);
+addMessages('es', esMessages);
 
 const getCookie = (name) => {
   if (typeof document === 'undefined') return null;
@@ -13,7 +17,20 @@ const getCookie = (name) => {
   return null;
 };
 
-const initialLocale = typeof window !== 'undefined' ? (getCookie('locale') || getLocaleFromNavigator()) : 'en';
+const supportedLocales = new Set(['en', 'it', 'de', 'es']);
+
+const normalizeLocale = (value) => {
+  if (!value || typeof value !== 'string') return 'en';
+  const normalized = value.toLowerCase().split('-')[0];
+  return supportedLocales.has(normalized) ? normalized : 'en';
+};
+
+const desiredClientLocale =
+  typeof window !== 'undefined'
+    ? normalizeLocale(getCookie('locale') || getLocaleFromNavigator())
+    : 'en';
+
+const initialLocale = 'en';
 
 init({
   fallbackLocale: 'en',
@@ -26,5 +43,11 @@ if (typeof window !== 'undefined') {
       document.cookie = `locale=${newLocale}; max-age=31536000; path=/; samesite=lax`;
     }
   });
-  waitLocale();
+
+  // Apply saved locale after hydration to avoid hydration_html_changed warnings.
+  if (desiredClientLocale !== initialLocale) {
+    requestAnimationFrame(() => {
+      locale.set(desiredClientLocale);
+    });
+  }
 }

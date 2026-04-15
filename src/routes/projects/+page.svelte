@@ -1,4 +1,5 @@
 <script>
+  import "$lib/locales/i18n.js";
   import ProjectCard from "$lib/components/widgets/ProjectCard.svelte";
   import { siteConfig } from "$lib/config.js";
   import { tooltip } from "$lib/actions/tooltip.js";

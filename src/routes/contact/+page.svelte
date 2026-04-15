@@ -1,4 +1,5 @@
 <script>
+  import "$lib/locales/i18n.js";
   import Button from "$lib/components/ui/Button.svelte";
   import { siteConfig } from "$lib/config.js";
   import { t } from "svelte-i18n";

@@ -3,19 +3,12 @@
   import { fade } from "svelte/transition";
   import { onNavigate, afterNavigate } from "$app/navigation";
   import "../app.css";
+  import "$lib/locales/i18n.js";
   import Nav from "$lib/components/ui/Nav.svelte";
   import { siteConfig } from "$lib/config.js";
-  import "$lib/locales/i18n.js";
   import { isLoading, waitLocale, locale } from "svelte-i18n";
-  import { page } from "$app/state";
 
   let { children } = $props();
-
-  const pageName = $derived(
-    page.route?.id === "/"
-      ? "home"
-      : page.route?.id?.replace(/^\//, "") || "error",
-  );
   let localeLoaded = $state(false);
 
   onMount(async () => {
@@ -47,42 +40,10 @@
     });
   });
 
-  onMount(() => {
-    const getCookie = (name) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(";").shift();
-      return null;
-    };
 
-    const hexToRgbStr = (hex) => {
-      const cleanHex = hex.replace("#", "");
-      if (cleanHex.length < 6) return "225, 102, 102";
-      const r = parseInt(cleanHex.slice(0, 2), 16);
-      const g = parseInt(cleanHex.slice(2, 4), 16);
-      const b = parseInt(cleanHex.slice(4, 6), 16);
-      return `${r}, ${g}, ${b}`;
-    };
-
-    if (!getCookie("accent_color")) {
-      const pickLight = () =>
-        Math.floor(128 + Math.random() * 127)
-          .toString(16)
-          .padStart(2, "0");
-      const randomColor = `#${pickLight()}${pickLight()}${pickLight()}`;
-      document.cookie = `accent_color=${encodeURIComponent(randomColor)}; max-age=31536000; path=/; samesite=lax`;
-
-      document.documentElement.style.setProperty("--accent", randomColor);
-      document.documentElement.style.setProperty(
-        "--accent-rgb",
-        hexToRgbStr(randomColor),
-      );
-    }
-  });
 </script>
 
 <svelte:head>
-  <meta property="og:site_name" content={`allocazione.dev / ${pageName}`} />
   <meta name="description" content={randomDescription} />
   <meta property="og:description" content={randomDescription} />
   <meta name="twitter:description" content={randomDescription} />

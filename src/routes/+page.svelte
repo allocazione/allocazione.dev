@@ -1,4 +1,5 @@
 <script>
+  import "$lib/locales/i18n.js";
   import Button from "$lib/components/ui/Button.svelte";
   import Clock from "$lib/components/widgets/Clock.svelte";
   import StatsFM from "$lib/components/widgets/StatsFM.svelte";
