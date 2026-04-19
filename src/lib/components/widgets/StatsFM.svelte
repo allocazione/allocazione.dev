@@ -7,6 +7,13 @@
 
   const CACHE_KEY = "statsfm_widget_cache_v1";
   const CACHE_TTL_MS = 120000;
+  const LIVE_FETCH_OPTIONS = {
+    cache: "no-store",
+    headers: {
+      "Cache-Control": "no-cache",
+      Pragma: "no-cache",
+    },
+  };
 
   let data = $state(null);
   let loading = $state(true);
@@ -71,6 +78,7 @@
         const albumId = track.albums[0].id;
         const res = await fetch(
           `https://beta-api.stats.fm/api/v1/albums/${albumId}`,
+          LIVE_FETCH_OPTIONS,
         );
         const albumData = await res.json();
         if (albumData?.item?.externalIds?.spotify?.length > 0) {
@@ -89,6 +97,7 @@
             try {
               const res = await fetch(
                 `https://beta-api.stats.fm/api/v1/artists/${artist.id}`,
+                LIVE_FETCH_OPTIONS,
               );
               const artistData = await res.json();
               if (artistData?.item?.externalIds?.spotify?.length > 0) {
@@ -192,6 +201,7 @@
     try {
       const res = await fetch(
         `https://beta-api.stats.fm/api/v1/users/${siteConfig.statsFmUser}/streams/current`,
+        LIVE_FETCH_OPTIONS,
       );
 
       if (!res.ok) {
@@ -211,6 +221,7 @@
       } else {
         const recentRes = await fetch(
           `https://beta-api.stats.fm/api/v1/users/${siteConfig.statsFmUser}/streams/recent?limit=1`,
+          LIVE_FETCH_OPTIONS,
         );
         if (recentRes.ok) {
           const recentData = await recentRes.json();
