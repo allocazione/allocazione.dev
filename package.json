@@ -17,7 +17,7 @@
 		"@tailwindcss/vite": "^4.2.2",
 		"svelte": "^5.55.0",
 		"tailwindcss": "^4.2.2",
-		"vite": "^8.0.5"
+		"vite": "^8.0.16"
 	},
 	"dependencies": {
 		"animejs": "^4.3.6",
